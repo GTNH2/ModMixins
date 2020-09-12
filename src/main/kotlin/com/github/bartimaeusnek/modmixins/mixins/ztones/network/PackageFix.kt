@@ -13,7 +13,7 @@ import java.io.IOException
 class PackageFix {
 
     @Throws(IOException::class)
-    @Inject(method = ["processData"], at = [At(value = "HEAD")])
+    @Inject(method = ["processData"], at = [At(value = "HEAD")], remap = false)
     fun processData(c: CallbackInfo, entityPlayer: EntityPlayer, bbis: ByteBufInputStream) {
         val itemStack = entityPlayer.heldItem
         if (itemStack != null && itemStack.item?.javaClass?.name?.contains("com.riciJak.Ztones.block") == true) {
